@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<artifactId>tectonica-geo-server</artifactId>
+	<packaging>war</packaging>
+
+	<parent>
+		<groupId>com.tectonica</groupId>
+		<artifactId>tectonica-geo</artifactId>
+		<version>1.0-SNAPSHOT</version>
+		<relativePath>..</relativePath>
+	</parent>
+
+	<properties>
+		<version.jetty>9.2.6.v20141205</version.jetty>
+		<version.jersey>2.14</version.jersey>
+		<version.weld>2.2.8.Final</version.weld>
+	</properties>
+
+	<dependencies>
+
+		<dependency>
+			<groupId>com.tectonica</groupId>
+			<artifactId>tectonica-geo-common</artifactId>
+		</dependency>
+
+		<!-- JavaEE -->
+		<dependency>
+			<groupId>javax</groupId>
+			<artifactId>javaee-api</artifactId>
+			<version>7.0</version>
+		</dependency>
+
+		<!-- Jersey with Jackson -->
+		<dependency>
+			<groupId>org.glassfish.jersey.containers</groupId>
+			<artifactId>jersey-container-servlet</artifactId>
+			<version>${version.jersey}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.glassfish.jersey.media</groupId>
+			<artifactId>jersey-media-json-jackson</artifactId>
+			<version>${version.jersey}</version>
+		</dependency>
+
+		<!-- Weld for Jersey -->
+		<dependency>
+			<groupId>org.glassfish.jersey.containers.glassfish</groupId>
+			<artifactId>jersey-gf-cdi</artifactId>
+			<version>${version.jersey}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.glassfish.jersey.containers.glassfish</groupId>
+			<artifactId>jersey-gf-cdi-ban-custom-hk2-binding</artifactId>
+			<version>${version.jersey}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.jboss.weld.servlet</groupId>
+			<artifactId>weld-servlet-core</artifactId>
+			<version>${version.weld}</version>
+		</dependency>
+
+	</dependencies>
+
+	<build>
+		<plugins>
+			<!-- to execute: mvn clean package jetty:run -->
+			<plugin>
+				<groupId>org.eclipse.jetty</groupId>
+				<artifactId>jetty-maven-plugin</artifactId>
+				<version>${version.jetty}</version>
+				<configuration>
+					<scanIntervalSeconds>2</scanIntervalSeconds>
+					<jettyXml>${project.basedir}/etc/jetty.xml</jettyXml>
+					<contextXml>${project.basedir}/src/main/webapp/WEB-INF/jetty-context.xml</contextXml>
+					<webApp>
+						<jettyEnvXml>${project.basedir}/src/main/webapp/WEB-INF/jetty-env.xml</jettyEnvXml>
+					</webApp>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+
+</project>
