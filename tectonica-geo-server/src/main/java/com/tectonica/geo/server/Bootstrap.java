@@ -15,10 +15,15 @@ public class Bootstrap implements Servlet
 	@Inject
 	private Logger LOG;
 
+	@Inject
+	private GraphHopperManager ghm;
+
 	@Override
 	public void init(ServletConfig sc) throws ServletException
 	{
-		LOG.info("BOOSTRAP HERE ***********************************");
+		LOG.info("STARTING BOOSTRAP **************************************************");
+		ghm.init();
+		LOG.info("FINISHED BOOSTRAP **************************************************");
 	}
 
 	@Override
