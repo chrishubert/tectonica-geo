@@ -18,6 +18,7 @@ import jsprit.core.problem.VehicleRoutingProblem.FleetSize;
 import jsprit.core.problem.cost.AbstractForwardVehicleRoutingTransportCosts;
 import jsprit.core.problem.cost.VehicleRoutingTransportCosts;
 import jsprit.core.problem.driver.Driver;
+import jsprit.core.problem.job.Job;
 import jsprit.core.problem.job.Shipment;
 import jsprit.core.problem.solution.VehicleRoutingProblemSolution;
 import jsprit.core.problem.solution.route.VehicleRoute;
@@ -93,7 +94,7 @@ public class Solver
 			final Stopover pickup = delivery.getPickup();
 			final Stopover dropoff = delivery.getDropoff();
 
-			Shipment shipment = Shipment.Builder.newInstance(name(delivery)) //
+			Shipment shipment = Shipment.Builder.newInstance(delivery.getId()) //
 					.setPickupLocation(loc(pickup)) //
 					.setPickupTimeWindow(tw(pickup)) //
 					.setPickupServiceTime(delivery.getPickupServiceTimeSec()) //
@@ -132,7 +133,12 @@ public class Solver
 		}
 		p.setEndTimeSec(vr.getEnd().getArrTime());
 		p.setStopoverOrder(stopoverOrder);
-//		bestSolution.getUnassignedJobs()
+
+		final Collection<Job> unassignedJobs = bestSolution.getUnassignedJobs();
+		List<String> unassignedDeliveries = new ArrayList<>(unassignedJobs.size());
+		for (Job job : unassignedJobs)
+			unassignedDeliveries.add(job.getId());
+		p.setUnassignedDeliveries(unassignedDeliveries);
 	}
 
 	private Location loc(Coords c)
@@ -145,10 +151,5 @@ public class Solver
 	private TimeWindow tw(Stopover s)
 	{
 		return new TimeWindow(s.getNotBeforeSec(), s.getNotAfterSec());
-	}
-
-	private String name(Delivery d)
-	{
-		return d.getPickup().getName() + "-" + d.getDropoff().getName();
 	}
 }

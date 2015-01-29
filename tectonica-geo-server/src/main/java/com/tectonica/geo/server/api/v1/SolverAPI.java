@@ -64,9 +64,9 @@ public class SolverAPI
 		Stopover b2 = Stopover.create(32.093716, 34.820239, "B2", 0, 0, 3, 0);
 		Stopover c1 = Stopover.create(32.054223, 34.755609, "C1", 0, 0, 3, 0);
 		Stopover c2 = Stopover.create(32.084481, 34.809339, "C2", 0, 0, 3, 0);
-		Delivery dlv1 = Delivery.create(a1, a2, SERVICE_TIME_SEC, SERVICE_TIME_SEC);
-		Delivery dlv2 = Delivery.create(b1, b2, SERVICE_TIME_SEC, SERVICE_TIME_SEC);
-		Delivery dlv3 = Delivery.create(c1, c2, SERVICE_TIME_SEC, SERVICE_TIME_SEC);
+		Delivery dlv1 = Delivery.create("A1-A2", a1, a2, SERVICE_TIME_SEC, SERVICE_TIME_SEC);
+		Delivery dlv2 = Delivery.create("B1-B2", b1, b2, SERVICE_TIME_SEC, SERVICE_TIME_SEC);
+		Delivery dlv3 = Delivery.create("C1-C2", c1, c2, SERVICE_TIME_SEC, SERVICE_TIME_SEC);
 		List<Delivery> deliveries = Arrays.asList(dlv1, dlv2, dlv3);
 
 		Problem problem = new Problem();
