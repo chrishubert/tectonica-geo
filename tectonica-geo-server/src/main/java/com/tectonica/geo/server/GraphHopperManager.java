@@ -34,11 +34,6 @@ public class GraphHopperManager
 		sdf.setTimeZone(TimeZone.getTimeZone("UTC"));
 	}
 
-	private String dt(long time)
-	{
-		return sdf.format(new Date(time));
-	}
-
 	public void init()
 	{
 		File ghFolder = new File(GH_BASE + "/graph");
@@ -51,7 +46,7 @@ public class GraphHopperManager
 		if (!osmFile.exists())
 			throw new RuntimeException("missing " + osmFile.getAbsolutePath());
 
-		LOG.info("Initializing GraphHoper..");
+		LOG.info("Initializing GraphHopper..");
 
 		gh = new GraphHopper() //
 //				.forServer() // = in-memory + simplified-path
@@ -64,23 +59,22 @@ public class GraphHopperManager
 
 		gh.importOrLoad();
 
-		LOG.info("Done initializing GraphHoper");
+		LOG.info("Done initializing GraphHopper");
 	}
 
 	public DistTime distTime(double fromLat, double fromLng, double toLat, double toLng)
 	{
 		DistTime result = cache.get(fromLat, fromLng, toLat, toLng);
-		
+
 		if (result == null)
 		{
 			final GHResponse path = path(fromLat, fromLng, toLat, toLng);
 			result = new DistTime();
-			result.setDistM(path.getDistance());
-			result.setTimeS(path.getMillis() / 1000L);
-			result.setTimeText(dt(path.getMillis()));
+			result.setMeters(path.getDistance());
+			result.setSeconds(path.getMillis() / 1000L);
 			cache.put(fromLat, fromLng, toLat, toLng, result);
 		}
-		
+
 		return result;
 	}
 
@@ -95,12 +89,17 @@ public class GraphHopperManager
 				);
 
 		if (response.hasErrors())
-			throw new RuntimeException("Erroneus request");
+			throw new RuntimeException("Erroneus request " + fromLat + "," + fromLng + "," + toLat + "," + toLng);
 
 		LOG.info("points   = " + response.getPoints().getSize());
 		LOG.info("distance = " + response.getDistance() / 1000.0); // km
 		LOG.info("time     = " + dt(response.getMillis()));
 
 		return response;
+	}
+
+	public String dt(long time)
+	{
+		return sdf.format(new Date(time));
 	}
 }
