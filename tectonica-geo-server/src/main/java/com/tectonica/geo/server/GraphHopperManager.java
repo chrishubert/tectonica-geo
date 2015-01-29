@@ -24,9 +24,10 @@ public class GraphHopperManager
 	private Logger LOG;
 
 	private GraphHopper gh;
+	private DistTimeMatrix cache = new DistTimeMatrix();
 
 	private final SimpleDateFormat sdf;
-	
+
 	public GraphHopperManager()
 	{
 		sdf = new SimpleDateFormat("HH:mm:ss");
@@ -66,20 +67,27 @@ public class GraphHopperManager
 		LOG.info("Done initializing GraphHoper");
 	}
 
-	public DistTime distTime(double fromLat, double fronLng, double toLat, double toLng)
+	public DistTime distTime(double fromLat, double fromLng, double toLat, double toLng)
 	{
-		final GHResponse path = path(fromLat, fronLng, toLat, toLng);
-		DistTime result = new DistTime();
-		result.setDistM(path.getDistance());
-		result.setTimeS(path.getMillis() / 1000L);
-		result.setTimeText(dt(path.getMillis()));
+		DistTime result = cache.get(fromLat, fromLng, toLat, toLng);
+		
+		if (result == null)
+		{
+			final GHResponse path = path(fromLat, fromLng, toLat, toLng);
+			result = new DistTime();
+			result.setDistM(path.getDistance());
+			result.setTimeS(path.getMillis() / 1000L);
+			result.setTimeText(dt(path.getMillis()));
+			cache.put(fromLat, fromLng, toLat, toLng, result);
+		}
+		
 		return result;
 	}
 
-	private GHResponse path(double fromLat, double fronLng, double toLat, double toLng)
+	private GHResponse path(double fromLat, double fromLng, double toLat, double toLng)
 	{
 		GHResponse response = gh.route(//
-				new GHRequest(fromLat, fronLng, toLat, toLng) //
+				new GHRequest(fromLat, fromLng, toLat, toLng) //
 //						.setVehicle("motorcycle") //
 						.setWeighting("fastest") //
 //						.setWeighting("shortest") //
