@@ -21,7 +21,19 @@ public class Bootstrap implements Servlet
 	@Override
 	public void init(ServletConfig sc) throws ServletException
 	{
-		LOG.info("STARTING BOOSTRAP **************************************************");
+		StringBuffer sb = new StringBuffer();
+
+		sb.append("\n");
+		sb.append("     __            __              _").append("\n");
+		sb.append("    / /____  _____/ /_____  ____  (_)________ _   ____ ____  ____     ________  ______   _____  _____").append("\n");
+		sb.append("   / __/ _ \\/ ___/ __/ __ \\/ __ \\/ / ___/ __ `/  / __ `/ _ \\/ __ \\   / ___/ _ \\/ ___/ | / / _ \\/ ___/").append(
+				"\n");
+		sb.append("  / /_/  __/ /__/ /_/ /_/ / / / / / /__/ /_/ /  / /_/ /  __/ /_/ /  (__  )  __/ /   | |/ /  __/ /").append("\n");
+		sb.append("  \\__/\\___/\\___/\\__/\\____/_/ /_/_/\\___/\\__,_/   \\__, /\\___/\\____/  /____/\\___/_/    |___/\\___/_/").append(
+				"\n");
+		sb.append("                                               /____/").append("\n");
+
+		LOG.info(sb.toString());
 		ghm.init();
 		LOG.info("FINISHED BOOSTRAP **************************************************");
 	}
