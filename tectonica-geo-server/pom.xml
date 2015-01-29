@@ -101,7 +101,7 @@
 
 	<build>
 		<plugins>
-			<!-- to execute: mvn clean package jetty:run -->
+			<!-- to execute: mvn clean package jetty:run -Djava.util.logging.config.file=etc/logging.properties -->
 			<plugin>
 				<groupId>org.eclipse.jetty</groupId>
 				<artifactId>jetty-maven-plugin</artifactId>
