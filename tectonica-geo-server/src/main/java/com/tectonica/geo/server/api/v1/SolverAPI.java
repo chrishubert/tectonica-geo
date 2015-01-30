@@ -32,6 +32,15 @@ public class SolverAPI
 	@Inject
 	private Solver solver;
 
+	/**
+	 * solves a courier problem, required to make pickups and dropoffs in several locations at given time windows
+	 * 
+	 * @summary find best route
+	 * @param problem
+	 *            set of restrictions for the courier
+	 * @return
+	 *         the same problem, along with solution fields
+	 */
 	@POST
 	public Problem solve(Problem problem)
 	{
@@ -42,6 +51,13 @@ public class SolverAPI
 		return problem;
 	}
 
+	/**
+	 * demo API, showing a problem and its solution
+	 * 
+	 * @summary demonstrate solver
+	 * @return
+	 *         solved problem
+	 */
 	@GET
 	public Problem solveDemo()
 	{

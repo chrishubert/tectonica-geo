@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<artifactId>tectonica-geo-server</artifactId>
+	<packaging>war</packaging>
+
+	<!-- to create API-Docs: -->
+	<!-- mvn clean test -f apidocs-pom.xml -Dmaven.test.skip=true -->
+
+	<parent>
+		<groupId>com.tectonica</groupId>
+		<artifactId>tectonica-geo</artifactId>
+		<version>1.0-SNAPSHOT</version>
+		<relativePath>..</relativePath>
+	</parent>
+
+	<pluginRepositories>
+		<pluginRepository>
+			<id>localrepo</id>
+			<name>localrepo</name>
+			<url>file://${project.basedir}/localrepo</url>
+		</pluginRepository>
+	</pluginRepositories>
+
+	<dependencies>
+		<dependency>
+			<groupId>com.tectonica</groupId>
+			<artifactId>tectonica-geo-common</artifactId>
+		</dependency>
+
+		<!-- JavaEE -->
+		<dependency>
+			<groupId>javax</groupId>
+			<artifactId>javaee-api</artifactId>
+		</dependency>
+
+		<!-- Jersey with Jackson -->
+		<dependency>
+			<groupId>org.glassfish.jersey.containers</groupId>
+			<artifactId>jersey-container-servlet</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.glassfish.jersey.media</groupId>
+			<artifactId>jersey-media-json-jackson</artifactId>
+		</dependency>
+
+		<!-- Jsprit -->
+		<dependency>
+			<groupId>jsprit</groupId>
+			<artifactId>jsprit-core</artifactId>
+		</dependency>
+
+		<!-- GraphHopper -->
+		<dependency>
+			<groupId>com.graphhopper</groupId>
+			<artifactId>graphhopper</artifactId>
+		</dependency>
+
+		<!-- Trove -->
+		<dependency>
+			<groupId>net.sf.trove4j</groupId>
+			<artifactId>trove4j</artifactId>
+		</dependency>
+	</dependencies>
+
+	<build>
+		<plugins>
+			<plugin>
+				<artifactId>maven-clean-plugin</artifactId>
+				<version>2.6.1</version>
+				<configuration>
+					<filesets>
+						<fileset>
+							<directory>${project.basedir}/src/main/webapp/apidocs</directory>
+						</fileset>
+					</filesets>
+				</configuration>
+			</plugin>
+
+			<!-- APIDocs generation -->
+			<!-- see documentation at http://www.miredot.com/docs -->
+			<plugin>
+				<groupId>com.qmino</groupId>
+				<artifactId>miredot-plugin</artifactId>
+				<version>1.5.1</version>
+				<executions>
+					<execution>
+						<goals>
+							<goal>restdoc</goal>
+						</goals>
+					</execution>
+				</executions>
+				<configuration>
+					<licence>UHJvamVjdHxjb20udGVjdG9uaWNhLnRlY3RvbmljYS1nZW8tc2VydmVyfDIwMTctMDEtMjl8ZmFsc2UjTUM0Q0ZRQ1VqWXBTYU9hL0crZjBUbGc3YlpiWDh0VTFsd0lWQUkvKzRsSndSMm5PRmNCUUdvZ3BsV2ZBbTgvSA==</licence>
+					<output>
+						<title>Tectonica Geo Server</title>
+						<html>
+							<intro>${project.basedir}/localrepo/com/qmino/apidocs-intro.html</intro>
+							<baseUrl>http://tectonica-geo.appspot.com/v1</baseUrl>
+							<location>${project.basedir}/src/main/webapp/apidocs</location>
+							<initialCollapseLevel>100</initialCollapseLevel>
+						</html>
+					</output>
+					<restModel>
+						<fieldVisibility>
+							<ALL>PUBLIC_ONLY</ALL>
+							<FIELD>NONE</FIELD>
+						</fieldVisibility>
+						<typeReplacements>
+							<typeReplacement>
+								<source>int</source>
+								<target>integer</target>
+								<type>literal</type>
+							</typeReplacement>
+							<typeReplacement>
+								<source>java.lang.Integer</source>
+								<target>integer</target>
+								<type>literal</type>
+							</typeReplacement>
+							<typeReplacement>
+								<source>long</source>
+								<target>long int</target>
+								<type>literal</type>
+							</typeReplacement>
+							<typeReplacement>
+								<source>java.lang.Long</source>
+								<target>long int</target>
+								<type>literal</type>
+							</typeReplacement>
+							<typeReplacement>
+								<source>java.util.Date</source>
+								<target>date (long)</target>
+								<type>literal</type>
+							</typeReplacement>
+						</typeReplacements>
+					</restModel>
+					<analysis>
+						<checks>
+							<JAVADOC_MISSING_SUMMARY>warn</JAVADOC_MISSING_SUMMARY>
+							<JAVADOC_MISSING_INTERFACEDOCUMENTATION>warn</JAVADOC_MISSING_INTERFACEDOCUMENTATION>
+							<JAVADOC_MISSING_PARAMETER_DOCUMENTATION>warn</JAVADOC_MISSING_PARAMETER_DOCUMENTATION>
+							<JAVADOC_MISSING_EXCEPTION_DOCUMENTATION>warn</JAVADOC_MISSING_EXCEPTION_DOCUMENTATION>
+							<JAVADOC_MISSING_AUTHORS>ignore</JAVADOC_MISSING_AUTHORS>
+							<JAXRS_MISSING_PRODUCES>warn</JAXRS_MISSING_PRODUCES>
+							<JAXRS_MISSING_CONSUMES>warn</JAXRS_MISSING_CONSUMES>
+							<JAXRS_MISSING_PATH_PARAM>warn</JAXRS_MISSING_PATH_PARAM>
+							<REST_UNMAPPED_EXCEPTION>failbuild</REST_UNMAPPED_EXCEPTION>
+						</checks>
+					</analysis>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+
+</project>

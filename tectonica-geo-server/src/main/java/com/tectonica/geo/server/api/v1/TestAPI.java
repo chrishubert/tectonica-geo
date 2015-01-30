@@ -41,7 +41,7 @@ public class TestAPI
 	}
 
 	/**
-	 * Use this API to see test de-serialization of TestBean from JSON
+	 * Use this API to test de-serialization of TestBean from JSON
 	 * 
 	 * @summary create a test-bean from a given bean
 	 * @param bean

@@ -26,11 +26,25 @@ public class MapAPI
 	private GraphHopperManager ghm;
 
 	/**
-	 * test with
+	 * Given two points, FROM and TO, estimates the time and distance for driving from one to another.
+	 * <p>
+	 * Testable example:
 	 * 
 	 * <pre>
 	 * /v1/map/distTime/32.1214860322075/34.8273127910236/32.0859593952429/34.7757739308293
 	 * </pre>
+	 * 
+	 * @summary measure distance and time
+	 * @param fromLat
+	 *            Latitude of FROM location
+	 * @param fronLng
+	 *            Longitude of FROM location
+	 * @param toLat
+	 *            Latitude of TO location
+	 * @param toLng
+	 *            Longitude of TO location
+	 * @return
+	 *         the time and distance for driving between FROM and TO
 	 */
 	@GET
 	@Path("/distTime/{fromLat}/{fronLng}/{toLat}/{toLng}")
@@ -40,5 +54,4 @@ public class MapAPI
 		LOG.info("Inside MapAPI.dist()");
 		return ghm.distTime(fromLat, fronLng, toLat, toLng);
 	}
-
 }

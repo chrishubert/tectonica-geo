@@ -1,0 +1,511 @@
+var com = { qmino : { miredot : {}}};
+com.qmino.miredot.restApiSource = {"licenceType":"PRO","miredotRevision":null,"allowUsageTracking":false,"issuesTabHidden":false,"miredotVersion":null,"licenceErrorMessage":null,"validLicence":true,"projectTitle":"Tectonica Geo Server","initialCollapseLevel":100,"jsonDocEnabled":true,"baseUrl":"http:\/\/tectonica-geo.appspot.com\/v1","projectVersion":"1.0-SNAPSHOT","jsonDocHidden":false,"buildSystem":"maven 3","projectName":"tectonica-geo-server","dateOfGeneration":"2015-01-30 17:23:16"};
+com.qmino.miredot.restApiSource.tos = {
+	com_tectonica_geo_common_model_Coords_in: { "type": "complex", "name": "com_tectonica_geo_common_model_Coords_in", "content": [] },
+	com_tectonica_geo_common_model_Coords_out: { "type": "complex", "name": "com_tectonica_geo_common_model_Coords_out", "content": [] },
+	com_tectonica_geo_common_model_DistTime_in: { "type": "complex", "name": "com_tectonica_geo_common_model_DistTime_in", "content": [] },
+	com_tectonica_geo_common_model_DistTime_out: { "type": "complex", "name": "com_tectonica_geo_common_model_DistTime_out", "content": [] },
+	com_tectonica_geo_common_model_Problem_in: { "type": "complex", "name": "com_tectonica_geo_common_model_Problem_in", "content": [] },
+	com_tectonica_geo_common_model_Problem_out: { "type": "complex", "name": "com_tectonica_geo_common_model_Problem_out", "content": [] },
+	com_tectonica_geo_common_model_Delivery_in: { "type": "complex", "name": "com_tectonica_geo_common_model_Delivery_in", "content": [] },
+	com_tectonica_geo_common_model_Delivery_out: { "type": "complex", "name": "com_tectonica_geo_common_model_Delivery_out", "content": [] },
+	com_tectonica_geo_common_model_TestBean_in: { "type": "complex", "name": "com_tectonica_geo_common_model_TestBean_in", "content": [] },
+	com_tectonica_geo_common_model_TestBean_out: { "type": "complex", "name": "com_tectonica_geo_common_model_TestBean_out", "content": [] },
+	com_tectonica_geo_common_model_Stopover_in: { "type": "complex", "name": "com_tectonica_geo_common_model_Stopover_in", "content": [] },
+	com_tectonica_geo_common_model_Stopover_out: { "type": "complex", "name": "com_tectonica_geo_common_model_Stopover_out", "content": [] }
+};
+
+com.qmino.miredot.restApiSource.enums = {
+
+};
+com.qmino.miredot.restApiSource.tos["com_tectonica_geo_common_model_Coords_in"].content = [ 
+	{
+		"name": "id",
+		"comment": null,
+		"typeValue": { "type": "simple", "typeValue": "string" },
+		"deprecated": false
+	},
+	{
+		"name": "lat",
+		"comment": null,
+		"typeValue": { "type": "simple", "typeValue": "number" },
+		"deprecated": false
+	},
+	{
+		"name": "lng",
+		"comment": null,
+		"typeValue": { "type": "simple", "typeValue": "number" },
+		"deprecated": false}
+];
+com.qmino.miredot.restApiSource.tos["com_tectonica_geo_common_model_Coords_in"].ordered = true;
+com.qmino.miredot.restApiSource.tos["com_tectonica_geo_common_model_Coords_in"].comment = null;
+com.qmino.miredot.restApiSource.tos["com_tectonica_geo_common_model_Coords_out"].content = [ 
+	{
+		"name": "id",
+		"comment": null,
+		"typeValue": { "type": "simple", "typeValue": "string" },
+		"deprecated": false
+	},
+	{
+		"name": "lat",
+		"comment": null,
+		"typeValue": { "type": "simple", "typeValue": "number" },
+		"deprecated": false
+	},
+	{
+		"name": "lng",
+		"comment": null,
+		"typeValue": { "type": "simple", "typeValue": "number" },
+		"deprecated": false}
+];
+com.qmino.miredot.restApiSource.tos["com_tectonica_geo_common_model_Coords_out"].ordered = true;
+com.qmino.miredot.restApiSource.tos["com_tectonica_geo_common_model_Coords_out"].comment = null;
+com.qmino.miredot.restApiSource.tos["com_tectonica_geo_common_model_DistTime_in"].content = [ 
+	{
+		"name": "meters",
+		"comment": null,
+		"typeValue": { "type": "simple", "typeValue": "number" },
+		"deprecated": false
+	},
+	{
+		"name": "seconds",
+		"comment": null,
+		"typeValue": { "type": "simple", "typeValue": "number" },
+		"deprecated": false}
+];
+com.qmino.miredot.restApiSource.tos["com_tectonica_geo_common_model_DistTime_in"].ordered = true;
+com.qmino.miredot.restApiSource.tos["com_tectonica_geo_common_model_DistTime_in"].comment = null;
+com.qmino.miredot.restApiSource.tos["com_tectonica_geo_common_model_DistTime_out"].content = [ 
+	{
+		"name": "meters",
+		"comment": null,
+		"typeValue": { "type": "simple", "typeValue": "number" },
+		"deprecated": false
+	},
+	{
+		"name": "seconds",
+		"comment": null,
+		"typeValue": { "type": "simple", "typeValue": "number" },
+		"deprecated": false}
+];
+com.qmino.miredot.restApiSource.tos["com_tectonica_geo_common_model_DistTime_out"].ordered = true;
+com.qmino.miredot.restApiSource.tos["com_tectonica_geo_common_model_DistTime_out"].comment = null;
+com.qmino.miredot.restApiSource.tos["com_tectonica_geo_common_model_Problem_in"].content = [ 
+	{
+		"name": "startCoords",
+		"comment": null,
+		"typeValue": com.qmino.miredot.restApiSource.tos["com_tectonica_geo_common_model_Coords_in"],
+		"deprecated": false
+	},
+	{
+		"name": "startTimeSec",
+		"comment": null,
+		"typeValue": { "type": "simple", "typeValue": "number" },
+		"deprecated": false
+	},
+	{
+		"name": "deliveries",
+		"comment": null,
+		"typeValue": { "type": "collection", "typeValue":com.qmino.miredot.restApiSource.tos["com_tectonica_geo_common_model_Delivery_in"] },
+		"deprecated": false}
+];
+com.qmino.miredot.restApiSource.tos["com_tectonica_geo_common_model_Problem_in"].ordered = true;
+com.qmino.miredot.restApiSource.tos["com_tectonica_geo_common_model_Problem_in"].comment = null;
+com.qmino.miredot.restApiSource.tos["com_tectonica_geo_common_model_Problem_out"].content = [ 
+	{
+		"name": "startCoords",
+		"comment": null,
+		"typeValue": com.qmino.miredot.restApiSource.tos["com_tectonica_geo_common_model_Coords_out"],
+		"deprecated": false
+	},
+	{
+		"name": "startTimeSec",
+		"comment": null,
+		"typeValue": { "type": "simple", "typeValue": "number" },
+		"deprecated": false
+	},
+	{
+		"name": "deliveries",
+		"comment": null,
+		"typeValue": { "type": "collection", "typeValue":com.qmino.miredot.restApiSource.tos["com_tectonica_geo_common_model_Delivery_out"] },
+		"deprecated": false
+	},
+	{
+		"name": "endTimeSec",
+		"comment": null,
+		"typeValue": { "type": "simple", "typeValue": "number" },
+		"deprecated": false
+	},
+	{
+		"name": "stopoverOrder",
+		"comment": null,
+		"typeValue": { "type": "collection", "typeValue":{ "type": "simple", "typeValue": "string" } },
+		"deprecated": false
+	},
+	{
+		"name": "unassignedDeliveries",
+		"comment": null,
+		"typeValue": { "type": "collection", "typeValue":{ "type": "simple", "typeValue": "string" } },
+		"deprecated": false}
+];
+com.qmino.miredot.restApiSource.tos["com_tectonica_geo_common_model_Problem_out"].ordered = true;
+com.qmino.miredot.restApiSource.tos["com_tectonica_geo_common_model_Problem_out"].comment = null;
+com.qmino.miredot.restApiSource.tos["com_tectonica_geo_common_model_Delivery_in"].content = [ 
+	{
+		"name": "id",
+		"comment": null,
+		"typeValue": { "type": "simple", "typeValue": "string" },
+		"deprecated": false
+	},
+	{
+		"name": "pickup",
+		"comment": null,
+		"typeValue": com.qmino.miredot.restApiSource.tos["com_tectonica_geo_common_model_Stopover_in"],
+		"deprecated": false
+	},
+	{
+		"name": "dropoff",
+		"comment": null,
+		"typeValue": com.qmino.miredot.restApiSource.tos["com_tectonica_geo_common_model_Stopover_in"],
+		"deprecated": false
+	},
+	{
+		"name": "pickupServiceTimeSec",
+		"comment": null,
+		"typeValue": { "type": "simple", "typeValue": "number" },
+		"deprecated": false
+	},
+	{
+		"name": "dropoffServiceTimeSec",
+		"comment": null,
+		"typeValue": { "type": "simple", "typeValue": "number" },
+		"deprecated": false}
+];
+com.qmino.miredot.restApiSource.tos["com_tectonica_geo_common_model_Delivery_in"].ordered = true;
+com.qmino.miredot.restApiSource.tos["com_tectonica_geo_common_model_Delivery_in"].comment = null;
+com.qmino.miredot.restApiSource.tos["com_tectonica_geo_common_model_Delivery_out"].content = [ 
+	{
+		"name": "id",
+		"comment": null,
+		"typeValue": { "type": "simple", "typeValue": "string" },
+		"deprecated": false
+	},
+	{
+		"name": "pickup",
+		"comment": null,
+		"typeValue": com.qmino.miredot.restApiSource.tos["com_tectonica_geo_common_model_Stopover_out"],
+		"deprecated": false
+	},
+	{
+		"name": "dropoff",
+		"comment": null,
+		"typeValue": com.qmino.miredot.restApiSource.tos["com_tectonica_geo_common_model_Stopover_out"],
+		"deprecated": false
+	},
+	{
+		"name": "pickupServiceTimeSec",
+		"comment": null,
+		"typeValue": { "type": "simple", "typeValue": "number" },
+		"deprecated": false
+	},
+	{
+		"name": "dropoffServiceTimeSec",
+		"comment": null,
+		"typeValue": { "type": "simple", "typeValue": "number" },
+		"deprecated": false}
+];
+com.qmino.miredot.restApiSource.tos["com_tectonica_geo_common_model_Delivery_out"].ordered = true;
+com.qmino.miredot.restApiSource.tos["com_tectonica_geo_common_model_Delivery_out"].comment = null;
+com.qmino.miredot.restApiSource.tos["com_tectonica_geo_common_model_TestBean_in"].content = [ 
+	{
+		"name": "name",
+		"comment": null,
+		"typeValue": { "type": "simple", "typeValue": "string" },
+		"deprecated": false
+	},
+	{
+		"name": "password",
+		"comment": null,
+		"typeValue": { "type": "simple", "typeValue": "string" },
+		"deprecated": false}
+];
+com.qmino.miredot.restApiSource.tos["com_tectonica_geo_common_model_TestBean_in"].ordered = false;
+com.qmino.miredot.restApiSource.tos["com_tectonica_geo_common_model_TestBean_in"].comment = null;
+com.qmino.miredot.restApiSource.tos["com_tectonica_geo_common_model_TestBean_out"].content = [ 
+	{
+		"name": "name",
+		"comment": null,
+		"typeValue": { "type": "simple", "typeValue": "string" },
+		"deprecated": false
+	},
+	{
+		"name": "updatedTime",
+		"comment": null,
+		"typeValue": { "type": "simple", "typeValue": "date (long)" },
+		"deprecated": false
+	},
+	{
+		"name": "readonly",
+		"comment": null,
+		"typeValue": { "type": "simple", "typeValue": "string" },
+		"deprecated": false}
+];
+com.qmino.miredot.restApiSource.tos["com_tectonica_geo_common_model_TestBean_out"].ordered = false;
+com.qmino.miredot.restApiSource.tos["com_tectonica_geo_common_model_TestBean_out"].comment = null;
+com.qmino.miredot.restApiSource.tos["com_tectonica_geo_common_model_Stopover_in"].content = [ 
+	{
+		"name": "id",
+		"comment": null,
+		"typeValue": { "type": "simple", "typeValue": "string" },
+		"deprecated": false
+	},
+	{
+		"name": "lat",
+		"comment": null,
+		"typeValue": { "type": "simple", "typeValue": "number" },
+		"deprecated": false
+	},
+	{
+		"name": "lng",
+		"comment": null,
+		"typeValue": { "type": "simple", "typeValue": "number" },
+		"deprecated": false
+	},
+	{
+		"name": "notBeforeSec",
+		"comment": null,
+		"typeValue": { "type": "simple", "typeValue": "number" },
+		"deprecated": false
+	},
+	{
+		"name": "notAfterSec",
+		"comment": null,
+		"typeValue": { "type": "simple", "typeValue": "number" },
+		"deprecated": false
+	},
+	{
+		"name": "name",
+		"comment": null,
+		"typeValue": { "type": "simple", "typeValue": "string" },
+		"deprecated": false}
+];
+com.qmino.miredot.restApiSource.tos["com_tectonica_geo_common_model_Stopover_in"].ordered = true;
+com.qmino.miredot.restApiSource.tos["com_tectonica_geo_common_model_Stopover_in"].comment = null;
+com.qmino.miredot.restApiSource.tos["com_tectonica_geo_common_model_Stopover_out"].content = [ 
+	{
+		"name": "id",
+		"comment": null,
+		"typeValue": { "type": "simple", "typeValue": "string" },
+		"deprecated": false
+	},
+	{
+		"name": "lat",
+		"comment": null,
+		"typeValue": { "type": "simple", "typeValue": "number" },
+		"deprecated": false
+	},
+	{
+		"name": "lng",
+		"comment": null,
+		"typeValue": { "type": "simple", "typeValue": "number" },
+		"deprecated": false
+	},
+	{
+		"name": "notBeforeSec",
+		"comment": null,
+		"typeValue": { "type": "simple", "typeValue": "number" },
+		"deprecated": false
+	},
+	{
+		"name": "notAfterSec",
+		"comment": null,
+		"typeValue": { "type": "simple", "typeValue": "number" },
+		"deprecated": false
+	},
+	{
+		"name": "name",
+		"comment": null,
+		"typeValue": { "type": "simple", "typeValue": "string" },
+		"deprecated": false
+	},
+	{
+		"name": "arrival",
+		"comment": null,
+		"typeValue": { "type": "simple", "typeValue": "number" },
+		"deprecated": false
+	},
+	{
+		"name": "departure",
+		"comment": null,
+		"typeValue": { "type": "simple", "typeValue": "number" },
+		"deprecated": false
+	},
+	{
+		"name": "order",
+		"comment": null,
+		"typeValue": { "type": "simple", "typeValue": "integer" },
+		"deprecated": false}
+];
+com.qmino.miredot.restApiSource.tos["com_tectonica_geo_common_model_Stopover_out"].ordered = true;
+com.qmino.miredot.restApiSource.tos["com_tectonica_geo_common_model_Stopover_out"].comment = null;
+com.qmino.miredot.restApiSource.interfaces = [
+	{
+		"beschrijving": "Use this API to test de-serialization of TestBean from JSON",
+		"url": "/test/",
+		"http": "POST",
+		"title": "create a test-bean from a given bean",
+		"tags": [],
+		"authors": [],
+		"compressed": false,
+		"deprecated": false,
+		"consumes": ["application/json"],
+		"produces": ["application/json"],
+		"roles": [],
+		"output": {"typeValue": com.qmino.miredot.restApiSource.tos["com_tectonica_geo_common_model_TestBean_out"], "comment": "an annotated version of the input test-bean"},
+		"statusCodes": [],
+		"hash": "178765124",
+		"inputs": {
+                "PATH": [],
+                "QUERY": [],
+                "BODY": [{"typeValue": com.qmino.miredot.restApiSource.tos["com_tectonica_geo_common_model_TestBean_in"], "comment": "the input test-bean", "jaxrs": "BODY"}],
+                "HEADER": [],
+                "COOKIE": [],
+                "FORM": [],
+                "MATRIX": []
+            }
+	},
+	{
+		"beschrijving": "demo API, showing a problem and its solution",
+		"url": "/solve/",
+		"http": "GET",
+		"title": "demonstrate solver",
+		"tags": [],
+		"authors": [],
+		"compressed": false,
+		"deprecated": false,
+		"consumes": [],
+		"produces": ["application/json"],
+		"roles": [],
+		"output": {"typeValue": com.qmino.miredot.restApiSource.tos["com_tectonica_geo_common_model_Problem_out"], "comment": "solved problem"},
+		"statusCodes": [],
+		"hash": "1917927777",
+		"inputs": {
+                "PATH": [],
+                "QUERY": [],
+                "BODY": [],
+                "HEADER": [],
+                "COOKIE": [],
+                "FORM": [],
+                "MATRIX": []
+            }
+	},
+	{
+		"beschrijving": "Given two points, FROM and TO, estimates the time and distance for driving from one to another. <p> Testable example: <pre>\n /v1/map/distTime/32.1214860322075/34.8273127910236/32.0859593952429/34.7757739308293\n </pre>",
+		"url": "/map/distTime/{fromLat}/{fronLng}/{toLat}/{toLng}",
+		"http": "GET",
+		"title": "measure distance and time",
+		"tags": [],
+		"authors": [],
+		"compressed": false,
+		"deprecated": false,
+		"consumes": [],
+		"produces": ["application/json"],
+		"roles": [],
+		"output": {"typeValue": com.qmino.miredot.restApiSource.tos["com_tectonica_geo_common_model_DistTime_out"], "comment": "the time and distance for driving between FROM and TO"},
+		"statusCodes": [],
+		"hash": "1509920571",
+		"inputs": {
+                "PATH": [
+                    {"name": "fromLat", "typeValue": { "type": "simple", "typeValue": "number" }, "comment": "Latitude of FROM location", "jaxrs": "PATH"},
+                    {"name": "fronLng", "typeValue": { "type": "simple", "typeValue": "number" }, "comment": "Longitude of FROM location", "jaxrs": "PATH"},
+                    {"name": "toLat", "typeValue": { "type": "simple", "typeValue": "number" }, "comment": "Latitude of TO location", "jaxrs": "PATH"},
+                    {"name": "toLng", "typeValue": { "type": "simple", "typeValue": "number" }, "comment": "Longitude of TO location", "jaxrs": "PATH"}
+                ],
+                "QUERY": [],
+                "BODY": [],
+                "HEADER": [],
+                "COOKIE": [],
+                "FORM": [],
+                "MATRIX": []
+            }
+	},
+	{
+		"beschrijving": "Use this API to see what how TestBean is serialized into JSON",
+		"url": "/test/",
+		"http": "GET",
+		"title": "create a dummy test-bean",
+		"tags": [],
+		"authors": [],
+		"compressed": false,
+		"deprecated": false,
+		"consumes": [],
+		"produces": ["application/json"],
+		"roles": [],
+		"output": {"typeValue": com.qmino.miredot.restApiSource.tos["com_tectonica_geo_common_model_TestBean_out"], "comment": "a new zach-melamed bean"},
+		"statusCodes": [],
+		"hash": "-894454796",
+		"inputs": {
+                "PATH": [],
+                "QUERY": [],
+                "BODY": [],
+                "HEADER": [],
+                "COOKIE": [],
+                "FORM": [],
+                "MATRIX": []
+            }
+	},
+	{
+		"beschrijving": "Returns environment information (headers, cookies, JVM and OS variables)",
+		"url": "/info/",
+		"http": "GET",
+		"title": "get environment",
+		"tags": [],
+		"authors": [],
+		"compressed": false,
+		"deprecated": false,
+		"consumes": [],
+		"produces": ["text/html"],
+		"roles": [],
+		"output": {"typeValue": { "type": "simple", "typeValue": "string" }, "comment": "HTML page with environment information"},
+		"statusCodes": [],
+		"hash": "1714259225",
+		"inputs": {
+                "PATH": [],
+                "QUERY": [],
+                "BODY": [],
+                "HEADER": [],
+                "COOKIE": [],
+                "FORM": [],
+                "MATRIX": []
+            }
+	},
+	{
+		"beschrijving": "solves a courier problem, required to make pickups and dropoffs in several locations at given time windows",
+		"url": "/solve/",
+		"http": "POST",
+		"title": "find best route",
+		"tags": [],
+		"authors": [],
+		"compressed": false,
+		"deprecated": false,
+		"consumes": ["application/json"],
+		"produces": ["application/json"],
+		"roles": [],
+		"output": {"typeValue": com.qmino.miredot.restApiSource.tos["com_tectonica_geo_common_model_Problem_out"], "comment": "the same problem, along with solution fields"},
+		"statusCodes": [],
+		"hash": "-824646047",
+		"inputs": {
+                "PATH": [],
+                "QUERY": [],
+                "BODY": [{"typeValue": com.qmino.miredot.restApiSource.tos["com_tectonica_geo_common_model_Problem_in"], "comment": "set of restrictions for the courier", "jaxrs": "BODY"}],
+                "HEADER": [],
+                "COOKIE": [],
+                "FORM": [],
+                "MATRIX": []
+            }
+	}];
+com.qmino.miredot.projectWarnings = [
+];
+com.qmino.miredot.processErrors  = [
+];
+
