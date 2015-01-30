@@ -13,13 +13,6 @@
 		<relativePath>..</relativePath>
 	</parent>
 
-	<properties>
-		<version.jetty>9.2.6.v20141205</version.jetty>
-		<version.jersey>2.14</version.jersey>
-		<version.weld>2.2.8.Final</version.weld>
-		<version.trove>3.0.3</version.trove>
-	</properties>
-
 	<repositories>
 		<repository>
 			<id>localrepo</id>
@@ -43,80 +36,62 @@
 			<artifactId>tectonica-geo-common</artifactId>
 		</dependency>
 
+		<!-- redirect log4j messages to J.U.L -->
+		<dependency>
+			<groupId>org.apache.logging.log4j</groupId>
+			<artifactId>log4j-to-slf4j</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-jdk14</artifactId>
+		</dependency>
+
 		<!-- JavaEE -->
 		<dependency>
 			<groupId>javax</groupId>
 			<artifactId>javaee-api</artifactId>
-			<version>7.0</version>
 		</dependency>
 
 		<!-- Jersey with Jackson -->
 		<dependency>
 			<groupId>org.glassfish.jersey.containers</groupId>
 			<artifactId>jersey-container-servlet</artifactId>
-			<version>${version.jersey}</version>
 		</dependency>
 		<dependency>
 			<groupId>org.glassfish.jersey.media</groupId>
 			<artifactId>jersey-media-json-jackson</artifactId>
-			<version>${version.jersey}</version>
 		</dependency>
 
 		<!-- Weld for Jersey -->
 		<dependency>
 			<groupId>org.glassfish.jersey.containers.glassfish</groupId>
 			<artifactId>jersey-gf-cdi</artifactId>
-			<version>${version.jersey}</version>
 		</dependency>
 		<dependency>
 			<groupId>org.glassfish.jersey.containers.glassfish</groupId>
 			<artifactId>jersey-gf-cdi-ban-custom-hk2-binding</artifactId>
-			<version>${version.jersey}</version>
 		</dependency>
 		<dependency>
 			<groupId>org.jboss.weld.servlet</groupId>
 			<artifactId>weld-servlet-core</artifactId>
-			<version>${version.weld}</version>
-		</dependency>
-
-		<!-- Trove -->
-		<dependency>
-			<groupId>net.sf.trove4j</groupId>
-			<artifactId>trove4j</artifactId>
-			<version>${version.trove}</version>
-		</dependency>
-
-		<!-- GraphHopper -->
-		<dependency>
-			<groupId>com.graphhopper</groupId>
-			<artifactId>graphhopper</artifactId>
-			<version>0.4-SNAPSHOT</version>
 		</dependency>
 
 		<!-- Jsprit -->
 		<dependency>
 			<groupId>jsprit</groupId>
 			<artifactId>jsprit-core</artifactId>
-			<version>1.5.1-SNAPSHOT</version>
-			<exclusions>
-				<exclusion>
-					<!-- we're not using VrpXMLWriter -->
-					<artifactId>xercesImpl</artifactId>
-					<groupId>xerces</groupId>
-				</exclusion>
-			</exclusions>
 		</dependency>
 
-		<!-- redirect log4j messages to J.U.L -->
+		<!-- GraphHopper -->
 		<dependency>
-			<groupId>org.apache.logging.log4j</groupId>
-			<artifactId>log4j-to-slf4j</artifactId>
-			<version>2.0</version>
+			<groupId>com.graphhopper</groupId>
+			<artifactId>graphhopper</artifactId>
 		</dependency>
+
+		<!-- Trove -->
 		<dependency>
-			<groupId>org.slf4j</groupId>
-			<artifactId>slf4j-jdk14</artifactId>
-			<version>1.7.7</version>
+			<groupId>net.sf.trove4j</groupId>
+			<artifactId>trove4j</artifactId>
 		</dependency>
 
 	</dependencies>
