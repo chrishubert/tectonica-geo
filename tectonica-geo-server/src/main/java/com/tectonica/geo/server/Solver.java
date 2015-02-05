@@ -34,10 +34,10 @@ import jsprit.core.util.Coordinate;
 import jsprit.core.util.Solutions;
 
 import com.tectonica.geo.common.model.Coords;
-import com.tectonica.geo.common.model.Delivery;
 import com.tectonica.geo.common.model.DistTime;
 import com.tectonica.geo.common.model.Problem;
-import com.tectonica.geo.common.model.Stopover;
+import com.tectonica.geo.common.model.Stop;
+import com.tectonica.geo.common.model.Task;
 
 @ApplicationScoped
 public class Solver
@@ -87,20 +87,20 @@ public class Solver
 		vrpBuilder.setFleetSize(FleetSize.FINITE);
 		vrpBuilder.setRoutingCost(transporter);
 
-		Map<String, Stopover> index = new HashMap<>();
+		Map<String, Stop> index = new HashMap<>();
 
-		for (Delivery delivery : p.getDeliveries())
+		for (Task task : p.getTasks())
 		{
-			final Stopover pickup = delivery.getPickup();
-			final Stopover dropoff = delivery.getDropoff();
+			final Stop pickup = task.getPickup();
+			final Stop dropoff = task.getDropoff();
 
-			Shipment shipment = Shipment.Builder.newInstance(delivery.getId()) //
+			Shipment shipment = Shipment.Builder.newInstance(task.getId()) //
 					.setPickupLocation(loc(pickup)) //
 					.setPickupTimeWindow(tw(pickup)) //
-					.setPickupServiceTime(delivery.getPickupServiceTimeSec()) //
+					.setPickupServiceTime(task.getPickupServiceTimeSec()) //
 					.setDeliveryLocation(loc(dropoff)) //
 					.setDeliveryTimeWindow(tw(dropoff)) //
-					.setDeliveryServiceTime(delivery.getDropoffServiceTimeSec()) //
+					.setDeliveryServiceTime(task.getDropoffServiceTimeSec()) //
 					.build();
 			vrpBuilder.addJob(shipment);
 
@@ -125,20 +125,20 @@ public class Solver
 		List<String> stopoverOrder = new ArrayList<>(activities.size());
 		for (TourActivity activity : activities)
 		{
-			final Stopover stopover = index.get(activity.getLocation().getId());
+			final Stop stopover = index.get(activity.getLocation().getId());
 			stopover.setArrival(activity.getArrTime());
 			stopover.setDeparture(activity.getEndTime());
 			stopover.setOrder(++order);
 			stopoverOrder.add(stopover.getId());
 		}
 		p.setEndTimeSec(vr.getEnd().getArrTime());
-		p.setStopoverOrder(stopoverOrder);
+		p.setStopsOrder(stopoverOrder);
 
 		final Collection<Job> unassignedJobs = bestSolution.getUnassignedJobs();
 		List<String> unassignedDeliveries = new ArrayList<>(unassignedJobs.size());
 		for (Job job : unassignedJobs)
 			unassignedDeliveries.add(job.getId());
-		p.setUnassignedDeliveries(unassignedDeliveries);
+		p.setUnassignedTasks(unassignedDeliveries);
 	}
 
 	private Location loc(Coords c)
@@ -148,7 +148,7 @@ public class Solver
 		return Location.Builder.newInstance().setCoordinate(Coordinate.newInstance(c.getLat(), c.getLng())).setId(c.getId()).build();
 	}
 
-	private TimeWindow tw(Stopover s)
+	private TimeWindow tw(Stop s)
 	{
 		return new TimeWindow(s.getNotBeforeSec(), s.getNotAfterSec());
 	}

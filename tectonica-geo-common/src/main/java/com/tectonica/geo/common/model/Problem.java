@@ -11,12 +11,12 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 @Data
-@JsonPropertyOrder({ "startCoords", "startTimeSec", "deliveries", "endTimeSec", "stopoverOrder", "unassignedDeliveries" })
+@JsonPropertyOrder({ "startCoords", "startTimeSec", "tasks", "endTimeSec", "stopsOrder", "unassignedTasks" })
 public class Problem
 {
 	private Coords startCoords;
 	private double startTimeSec;
-	private List<Delivery> deliveries;
+	private List<Task> tasks;
 
 	@Getter(onMethod = @__({ @JsonProperty }))
 	@Setter(onMethod = @__({ @JsonIgnore }))
@@ -24,9 +24,9 @@ public class Problem
 
 	@Getter(onMethod = @__({ @JsonProperty }))
 	@Setter(onMethod = @__({ @JsonIgnore }))
-	private List<String> stopoverOrder;
+	private List<String> stopsOrder;
 
 	@Getter(onMethod = @__({ @JsonProperty }))
 	@Setter(onMethod = @__({ @JsonIgnore }))
-	private List<String> unassignedDeliveries;
+	private List<String> unassignedTasks;
 }

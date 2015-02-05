@@ -13,9 +13,9 @@ import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 
 import com.tectonica.geo.common.model.Coords;
-import com.tectonica.geo.common.model.Delivery;
+import com.tectonica.geo.common.model.Task;
 import com.tectonica.geo.common.model.Problem;
-import com.tectonica.geo.common.model.Stopover;
+import com.tectonica.geo.common.model.Stop;
 import com.tectonica.geo.server.Solver;
 import com.tectonica.geo.server.api.CorsFilter.CORS;
 
@@ -74,21 +74,21 @@ public class SolverAPI
 
 		final double startTime = 0.0;
 
-		Stopover a1 = Stopover.create(32.091243, 34.787795, "A1", 0, 0, 3, 0);
-		Stopover a2 = Stopover.create(32.042874, 34.775264, "A2", 0, 0, 3, 0);
-		Stopover b1 = Stopover.create(32.089426, 34.776637, "B1", 0, 0, 3, 0);
-		Stopover b2 = Stopover.create(32.093716, 34.820239, "B2", 0, 0, 3, 0);
-		Stopover c1 = Stopover.create(32.054223, 34.755609, "C1", 0, 0, 3, 0);
-		Stopover c2 = Stopover.create(32.084481, 34.809339, "C2", 0, 0, 3, 0);
-		Delivery dlv1 = Delivery.create("A1-A2", a1, a2, SERVICE_TIME_SEC, SERVICE_TIME_SEC);
-		Delivery dlv2 = Delivery.create("B1-B2", b1, b2, SERVICE_TIME_SEC, SERVICE_TIME_SEC);
-		Delivery dlv3 = Delivery.create("C1-C2", c1, c2, SERVICE_TIME_SEC, SERVICE_TIME_SEC);
-		List<Delivery> deliveries = Arrays.asList(dlv1, dlv2, dlv3);
+		Stop a1 = Stop.create(32.091243, 34.787795, "A1", 0, 0, 3, 0);
+		Stop a2 = Stop.create(32.042874, 34.775264, "A2", 0, 0, 3, 0);
+		Stop b1 = Stop.create(32.089426, 34.776637, "B1", 0, 0, 3, 0);
+		Stop b2 = Stop.create(32.093716, 34.820239, "B2", 0, 0, 3, 0);
+		Stop c1 = Stop.create(32.054223, 34.755609, "C1", 0, 0, 3, 0);
+		Stop c2 = Stop.create(32.084481, 34.809339, "C2", 0, 0, 3, 0);
+		Task task1 = Task.create("A1-A2", a1, a2, SERVICE_TIME_SEC, SERVICE_TIME_SEC);
+		Task task2 = Task.create("B1-B2", b1, b2, SERVICE_TIME_SEC, SERVICE_TIME_SEC);
+		Task task3 = Task.create("C1-C2", c1, c2, SERVICE_TIME_SEC, SERVICE_TIME_SEC);
+		List<Task> tasks = Arrays.asList(task1, task2, task3);
 
 		Problem problem = new Problem();
 		problem.setStartTimeSec(startTime);
 		problem.setStartCoords(startCoords);
-		problem.setDeliveries(deliveries);
+		problem.setTasks(tasks);
 		return problem;
 	}
 }

@@ -6,19 +6,19 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 @Data
 @JsonPropertyOrder({ "id", "pickup", "dropoff", "pickupServiceTimeSec", "dropoffServiceTimeSec" })
-public class Delivery
+public class Task
 {
 	private String id;
-	private Stopover pickup;
-	private Stopover dropoff;
+	private Stop pickup;
+	private Stop dropoff;
 	private double pickupServiceTimeSec;
 	private double dropoffServiceTimeSec;
 
 	// /////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-	public static Delivery create(String id, Stopover pickup, Stopover dropoff, double pickupServiceTimeSec, double dropoffServiceTimeSec)
+	public static Task create(String id, Stop pickup, Stop dropoff, double pickupServiceTimeSec, double dropoffServiceTimeSec)
 	{
-		Delivery delivery = new Delivery();
+		Task delivery = new Task();
 		delivery.id = id;
 		delivery.pickup = pickup;
 		delivery.dropoff = dropoff;

@@ -12,7 +12,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 @Data
 @EqualsAndHashCode(callSuper = true)
 @JsonPropertyOrder({ "id", "lat", "lng", "notBeforeSec", "notAfterSec", "name", "arrival", "departure", "order" })
-public class Stopover extends Coords
+public class Stop extends Coords
 {
 	private double notBeforeSec;
 	private double notAfterSec;
@@ -36,9 +36,9 @@ public class Stopover extends Coords
 
 	// /////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-	public static Stopover create(double lat, double lng, String name, int notBeforeH, int notBeforeM, int notAfterH, int notAfterM)
+	public static Stop create(double lat, double lng, String name, int notBeforeH, int notBeforeM, int notAfterH, int notAfterM)
 	{
-		Stopover stopover = new Stopover();
+		Stop stopover = new Stop();
 		stopover.setLat(lat);
 		stopover.setLng(lng);
 		stopover.name = name;
