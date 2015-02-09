@@ -1,0 +1,26 @@
+
+*** TO ENTER THE DOCKER ONCE IN THE HOST MACHINE
+
+sudo docker ps
+sudo docker attach <container>
+(ENTER a few times)
+
+
+*** TO STOP THE RUNNING JETTY
+
+geo-tail & kill `ps | grep java | awk '{print $1}'`
+(Ctrl-C)
+
+
+*** TO UPGRADE AND RESTART
+
+rm -rf /var/tectonica/geo/graph
+cd /root/tectonica-geo
+mvn install
+geo-start
+(Ctrl-C)
+
+
+*** TO EXIT THE CONTAINER BACK TO THE HOST MACHINE
+
+(Ctrl-P)(Ctrl-Q)
