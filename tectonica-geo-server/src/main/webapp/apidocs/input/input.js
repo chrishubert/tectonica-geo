@@ -1,5 +1,5 @@
 var com = { qmino : { miredot : {}}};
-com.qmino.miredot.restApiSource = {"licenceType":"PRO","miredotRevision":null,"allowUsageTracking":false,"issuesTabHidden":false,"miredotVersion":null,"licenceErrorMessage":null,"validLicence":true,"projectTitle":"Tectonica Geo Server","initialCollapseLevel":100,"jsonDocEnabled":true,"baseUrl":"http:\/\/tectonica-geo.appspot.com\/v1","projectVersion":"1.0-SNAPSHOT","jsonDocHidden":false,"buildSystem":"maven 3","projectName":"tectonica-geo-server","dateOfGeneration":"2015-02-09 10:32:18"};
+com.qmino.miredot.restApiSource = {"licenceType":"PRO","miredotRevision":null,"allowUsageTracking":false,"issuesTabHidden":false,"miredotVersion":null,"licenceErrorMessage":null,"validLicence":true,"projectTitle":"Geo Server","initialCollapseLevel":100,"jsonDocEnabled":true,"baseUrl":"http:\/\/geo.yourdomain.com\/v1","projectVersion":"1.0-SNAPSHOT","jsonDocHidden":false,"buildSystem":"maven 3","projectName":"tectonica-geo-server","dateOfGeneration":"2015-02-10 18:57:43"};
 com.qmino.miredot.restApiSource.tos = {
 	com_tectonica_geo_common_model_Coords_in: { "type": "complex", "name": "com_tectonica_geo_common_model_Coords_in", "content": [] },
 	com_tectonica_geo_common_model_Coords_out: { "type": "complex", "name": "com_tectonica_geo_common_model_Coords_out", "content": [] },

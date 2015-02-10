@@ -95,10 +95,10 @@
 				<configuration>
 					<licence>UHJvamVjdHxjb20udGVjdG9uaWNhLnRlY3RvbmljYS1nZW8tc2VydmVyfDIwMTctMDEtMjl8ZmFsc2UjTUM0Q0ZRQ1VqWXBTYU9hL0crZjBUbGc3YlpiWDh0VTFsd0lWQUkvKzRsSndSMm5PRmNCUUdvZ3BsV2ZBbTgvSA==</licence>
 					<output>
-						<title>Tectonica Geo Server</title>
+						<title>Geo Server</title>
 						<html>
 							<intro>${project.basedir}/localrepo/com/qmino/apidocs-intro.html</intro>
-							<baseUrl>http://tectonica-geo.appspot.com/v1</baseUrl>
+							<baseUrl>http://geo.yourdomain.com/v1</baseUrl>
 							<location>${project.basedir}/src/main/webapp/apidocs</location>
 							<initialCollapseLevel>100</initialCollapseLevel>
 						</html>
