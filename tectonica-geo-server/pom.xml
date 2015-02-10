@@ -9,16 +9,12 @@
 	<parent>
 		<groupId>com.tectonica</groupId>
 		<artifactId>tectonica-geo</artifactId>
-		<version>1.0-SNAPSHOT</version>
+		<version>0.1</version>
 		<relativePath>..</relativePath>
 	</parent>
 
 	<repositories>
-		<repository>
-			<id>localrepo</id>
-			<name>localrepo</name>
-			<url>file://${project.basedir}/localrepo</url>
-		</repository>
+		<!-- JSprit -->
 		<repository>
 			<id>jsprit-snapshots</id>
 			<url>https://github.com/jsprit/mvn-rep/raw/master/snapshots</url>
@@ -27,6 +23,23 @@
 			<id>jsprit-releases</id>
 			<url>https://github.com/jsprit/mvn-rep/raw/master/releases</url>
 		</repository>
+
+		<!-- GraphHopper - disabled as it changes too fast, we're using pre-built jars in local repo instead -->
+		<repository>
+			<id>localrepo</id>
+			<name>localrepo</name>
+			<url>file://${project.basedir}/localrepo</url>
+		</repository>
+		<!-- <repository> -->
+		<!-- <id>sonatype-oss-public</id> -->
+		<!-- <url>https://oss.sonatype.org/content/groups/public/</url> -->
+		<!-- <releases> -->
+		<!-- <enabled>true</enabled> -->
+		<!-- </releases> -->
+		<!-- <snapshots> -->
+		<!-- <enabled>true</enabled> -->
+		<!-- </snapshots> -->
+		<!-- </repository> -->
 	</repositories>
 
 	<dependencies>

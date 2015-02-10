@@ -4,8 +4,38 @@
 
 	<groupId>com.tectonica</groupId>
 	<artifactId>tectonica-geo</artifactId>
-	<version>1.0-SNAPSHOT</version>
+	<version>0.1</version>
 	<packaging>pom</packaging>
+
+	<name>Tectonica Geo</name>
+	<description>Directions and route-planning APIs on your dedicated server</description>
+	<url>https://github.com/zach-m/tectonica-geo</url>
+
+	<organization>
+		<name>Tectonica Labs</name>
+		<url>www.tectonica.co.il</url>
+	</organization>
+
+	<licenses>
+		<license>
+			<name>Apache License, Version 2.0</name>
+			<url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+			<distribution>repo</distribution>
+		</license>
+	</licenses>
+
+	<developers>
+		<developer>
+			<name>Zach Melamed</name>
+			<email>zach@tectonica.co.il</email>
+			<organization>Tectonica Labs</organization>
+			<organizationUrl>www.tectonica.co.il</organizationUrl>
+		</developer>
+	</developers>
+
+	<scm>
+		<url>https://github.com/zach-m/tectonica-geo.git</url>
+	</scm>
 
 	<prerequisites>
 		<maven>3.2.2</maven>
@@ -156,4 +186,5 @@
 
 		</dependencies>
 	</dependencyManagement>
+
 </project>
