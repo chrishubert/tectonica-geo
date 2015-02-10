@@ -8,7 +8,7 @@ sudo docker attach <container>
 
 *** TO STOP THE RUNNING JETTY
 
-geo-tail & kill `ps | grep java | awk '{print $1}'`
+geo-tail.sh & kill `ps | grep java | awk '{print $1}'`
 (Ctrl-C)
 
 
@@ -16,8 +16,9 @@ geo-tail & kill `ps | grep java | awk '{print $1}'`
 
 rm -rf /var/tectonica/geo/graph
 cd /root/tectonica-geo
+git pull
 mvn install
-geo-start
+geo-start.sh
 (Ctrl-C)
 
 
